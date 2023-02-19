@@ -6,3 +6,5 @@
 3. [Потоки ввода-вывода. Работа с файлами. Сериализация](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/InterOutStream/InterOutStream)
 
 4. [Сборка проектов. Maven и Gradle](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/MavenAndGradle)
+
+5. [Работа с файлами CSV, XML, JSON](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/Parser%20CSV%20XML%20to%20JSON/Parser%20CSV%20XML%20to%20JSON)
