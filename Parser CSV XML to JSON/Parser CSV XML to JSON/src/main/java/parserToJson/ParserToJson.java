@@ -56,21 +56,59 @@ public class ParserToJson {
     }
 
     public static List<Employee> parseXML(String fileName) {
-
-        Document doc = null;
         List<Employee> list = new ArrayList<>();
-
+        Document document = null;
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            doc = builder.parse(new File(fileName));
+            document = builder.parse(new File(fileName));
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
 
-        Node root = doc.getDocumentElement();
-        NodeList employeeList = root.getChildNodes();
+        Node root = document.getDocumentElement();
+        NodeList rootChildes = root.getChildNodes();
+
+        for (int i = 0; i < rootChildes.getLength(); i++) {
+            if (rootChildes.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                Node employeeNode = rootChildes.item(i);
+                NodeList attributeEmployee = employeeNode.getChildNodes();
+
+                long id = 0;
+                String firstName = "";
+                String lastName = "";
+                String country = "";
+                int age = 0;
+
+                for (int j = 0; j < attributeEmployee.getLength(); j++) {
+                    switch (attributeEmployee.item(j).getNodeName()) {
+                        case "id": {
+                            id = Long.parseLong(attributeEmployee.item(j).getTextContent());
+                            break;
+                        }
+                        case "firstName": {
+                            firstName = attributeEmployee.item(j).getTextContent();
+                            break;
+                        }
+                        case "lastName": {
+                            lastName = attributeEmployee.item(j).getTextContent();
+                            break;
+                        }
+                        case "country": {
+                            country = attributeEmployee.item(j).getTextContent();
+                            break;
+                        }
+                        case "age": {
+                            age = Integer.parseInt(attributeEmployee.item(j).getTextContent());
+                            break;
+                        }
+                    }
+                }
+                Employee employee = new Employee(id, firstName, lastName, country, age);
+                list.add(employee);
+            }
+        }
         return list;
     }
 
