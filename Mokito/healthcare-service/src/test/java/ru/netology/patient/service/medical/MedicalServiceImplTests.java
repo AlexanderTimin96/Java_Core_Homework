@@ -15,14 +15,14 @@ import java.time.LocalDate;
 
 class MedicalServiceImplTests {
 
-    final PatientInfo patientInfoNormal = new PatientInfo("Иван", "Иванович", LocalDate.of(1, 1, 1),
+    final PatientInfo patientInfoNormal = new PatientInfo("id", "Иван", "Иванович", LocalDate.of(1, 1, 1),
             new HealthInfo(new BigDecimal(36.6), new BloodPressure(120, 80))
     );
-    final PatientInfo patientInfoDeviation = new PatientInfo("Иван", "Иванович", LocalDate.of(1, 1, 1),
+    final PatientInfo patientInfoDeviation = new PatientInfo("id", "Иван", "Иванович", LocalDate.of(1, 1, 1),
             new HealthInfo(new BigDecimal(39.6), new BloodPressure(150, 30))
     );
     final BloodPressure normalPressure = new BloodPressure(120, 80);
-    final String ID = "ID";
+    final String ID = "id";
 
     @Test
     public void checkTemperature_checkBloodPressure_with_normal_params() {
@@ -54,6 +54,8 @@ class MedicalServiceImplTests {
 
     @Test
     public void checkBloodPressure_sendMessageArgument() {
+
+        String expected = String.format("Warning, patient with id: %s, need help", ID);
         PatientInfoRepository patientInfoRepository = Mockito.mock(PatientInfoRepository.class);
         Mockito.when(patientInfoRepository.getById(Mockito.any())).thenReturn(patientInfoDeviation);
         SendAlertService service = Mockito.mock(SendAlertService.class);
@@ -63,7 +65,7 @@ class MedicalServiceImplTests {
         MedicalService medicalService = new MedicalServiceImpl(patientInfoRepository, service);
         medicalService.checkBloodPressure(ID, normalPressure);
 
-        Mockito.verify(patientInfoRepository).getById(captor.capture());
-        Assertions.assertEquals(ID, captor.getValue());
+        Mockito.verify(service).send(captor.capture());
+        Assertions.assertEquals(expected, captor.getValue());
     }
 }
