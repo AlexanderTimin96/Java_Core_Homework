@@ -10,3 +10,5 @@
 5. [Работа с файлами CSV, XML, JSON](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/Parser%20CSV%20XML%20to%20JSON/Parser%20CSV%20XML%20to%20JSON)
 
 6. [Тестирование кода и Unit-тесты](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/Unit-test/UnitTest)
+
+7. [Mockito. Мокирование вызовов, Mock, Stub](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/Mokito)
