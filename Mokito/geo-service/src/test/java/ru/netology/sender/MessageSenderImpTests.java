@@ -28,10 +28,9 @@ public class MessageSenderImpTests {
         Mockito.when(localizationServiceMock.locale(country))
                 .thenReturn(answer);
 
+        MessageSender messageSender = new MessageSenderImpl(geoServiceMock, localizationServiceMock);
         Map<String, String> map = new HashMap<>();
         map.put(MessageSenderImpl.IP_ADDRESS_HEADER, ip);
-
-        MessageSender messageSender = new MessageSenderImpl(geoServiceMock, localizationServiceMock);
 
         String result = messageSender.send(map);
         Assertions.assertEquals(expected, result);
@@ -39,9 +38,9 @@ public class MessageSenderImpTests {
 
     public static Stream<Arguments> argumentsStream() {
         return Stream.of(
-                Arguments.of("ipRussia", new Location(null, Country.RUSSIA, null, 0),
+                Arguments.of("172.0.32.11", new Location("Moscow", Country.RUSSIA, "Lenina", 15),
                         "Добро пожаловать", Country.RUSSIA, "Добро пожаловать"),
-                Arguments.of("ipUSA", new Location(null, Country.USA, null, 0),
+                Arguments.of("96.44.183.149", new Location("New York", Country.USA, " 10th Avenue", 32),
                         "Welcome", Country.USA, "Welcome")
         );
     }

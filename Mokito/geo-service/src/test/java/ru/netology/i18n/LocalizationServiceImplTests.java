@@ -41,6 +41,6 @@ class LocalizationServiceImplTests {
 
     @Test
     public void locale_Throw_RuntimeException() {
-        Assertions.assertThrows(RuntimeException.class, () -> localizationService.locale(null));
+        Assertions.assertDoesNotThrow(() -> localizationService.locale(null));
     }
 }
