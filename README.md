@@ -12,3 +12,5 @@
 6. [Тестирование кода и Unit-тесты](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/Unit-test/UnitTest)
 
 7. [Mockito. Мокирование вызовов, Mock, Stub](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/Mokito)
+
+8. [Основы работы с сетью. Модель OSI](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/ModelOSI/ClientServerApplication)
