@@ -15,4 +15,4 @@
 
 8. [Основы работы с сетью. Модель OSI](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/ModelOSI/ClientServerApplication)
 
-9.[https://netology.ru/profile/program/javacore-36/lessons/247879/lesson_items/1317790](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/HTTP)
+9. [https://netology.ru/profile/program/javacore-36/lessons/247879/lesson_items/1317790](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/HTTP)
