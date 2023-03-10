@@ -37,7 +37,7 @@ public class HttpClient {
             while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
                 fos.write(dataBuffer, 0, bytesRead);
             }
-
+            int sa = 1;
             response.close();
             in.close();
             fos.close();
