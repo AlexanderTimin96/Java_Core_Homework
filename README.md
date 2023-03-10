@@ -16,3 +16,5 @@
 8. [Основы работы с сетью. Модель OSI](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/ModelOSI/ClientServerApplication)
 
 9. [Протокол HTTP. Вызов удаленных серверов](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/HTTP)
+
+10. [JVM. Организация памяти, сборщики мусора, VisualVM](https://github.com/AlexanderTimin96/Java_Core_Homework/tree/main/JVM)
